@@ -4,7 +4,7 @@ function callAPI($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'http://127.0.0.1:3001/'.$urlpoint.'';
+    $url = 'https://shop-ad-strix.herokuapp.com/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
@@ -47,7 +47,7 @@ function callAPI1($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'http://127.0.0.1:3001/'.$urlpoint.'';
+    $url = 'https://shop-ad-strix.herokuapp.com/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
@@ -88,7 +88,7 @@ function callAPI1($method, $urlpoint, $data, $token){
  }
 
  function NODEAPIPOST($data,$link){
-   $url = 'http://127.0.0.1:3001/'.$link.'';
+   $url = 'https://shop-ad-strix.herokuapp.com/'.$link.'';
    $curl = curl_init();
 curl_setopt_array($curl, array(
   CURLOPT_URL => $url,
@@ -112,7 +112,7 @@ return $response;
 
  function NODEAPIGET($link,$token,$data, $method){
 $curl = curl_init();
- $url = 'http://127.0.0.1:3001/'.$link.'';
+ $url = 'https://shop-ad-strix.herokuapp.com/'.$link.'';
 curl_setopt_array($curl, array(
   CURLOPT_URL => $url,
   CURLOPT_RETURNTRANSFER => true,
