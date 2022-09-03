@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
 include 'admin/connect.php';
 include 'admin/session.php';
 include 'admin/header.php';
@@ -12,7 +14,7 @@ include 'admin/aside.php';
 // echo $_SESSION['token'];
 if(isset($_GET['activate'])){
     $data = array("id" => $_GET['activate']);
-    $make_call = NODEAPIGET('user/active',$_SESSION['token'],json_encode($data,true),'POST');
+    $make_call = NODEAPIGET('shop/active',$_SESSION['token'],json_encode($data,true),'POST');
     $response = json_decode($make_call, true);
     if($response['message']){
         echo "<script>alert('".$response['message']."')
@@ -22,7 +24,7 @@ if(isset($_GET['activate'])){
 }
 if(isset($_GET['inactivate'])){
     $data = array("id" => $_GET['inactivate'] );
-    $make_call = NODEAPIGET('user/inactive',$_SESSION['token'],json_encode($data,true),'POST');
+    $make_call = NODEAPIGET('shop/inactive',$_SESSION['token'],json_encode($data,true),'POST');
     $response = json_decode($make_call, true);
     if($response['message']){
         echo "<script>alert('".$response['message']."')
@@ -30,7 +32,7 @@ if(isset($_GET['inactivate'])){
         ";
     }  
 }
-$make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
+$make_call = NODEAPIGET('shop',$_SESSION['token'],null,'GET');
     $response = json_decode($make_call, true);
     if($response['message']){
         // echo "<script>alert('".$response['message']."')
@@ -47,7 +49,7 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                 <!-- / .row -->
                 <div class="row my-4">
                     <!-- Small table -->
-                    <div class="col-md-15">
+                    <div class="col-md-12">
                         <div class="card shadow">
                             <div class="card-body">
                                 <!-- table -->
@@ -55,13 +57,12 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>User Type</th>
-                                            <th>Subscribed</th>
-                                            <th>Subscription Id</th>
-                                            <th>Transaction Id</th>
+                                            <th>Shop Name</th>
+                                            <th>Location</th>
+                                            <th>Description</th>
+                                            <th>Owner Name</th>
+                                            <th>Owner Email</th>
+                                            <th>Owner Contact</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
@@ -70,24 +71,40 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                         <?php 
                                         $count = 1;
                                         foreach($response['data'] as $data){
+                                            $uid = array("id" => $data['ownerId'] );
+                                            $call_user = NODEAPIGET('user/uid',$_SESSION['token'],json_encode($uid,true),'POST');
+                                            $cuser = json_decode($call_user, true);
+                                            // if(isset($cuser['data'][0]))
+                                            {$user = $cuser['data'][0];}
+
                                         
                                         ?>
                                         <tr>
 
                                             <td><?php echo $count ?></td>
-                                            <td><?php echo $data['name'] ?></td>
-                                            <td><?php echo $data['mobile'] ?></td>
-                                            <td><?php echo $data['email'] ?></td>
-                                            <td><?php echo $data['userType'] ?></td>
-                                            <td><?php 
-                                             if($data['isSubscribed']==1){
-                                                echo "<h6 style='color:green'>Subscribed</h6>";
+                                            <td><?php echo $data['shopName'] ?></td>
+                                            <td><?php echo $data['location'] ?></td>
+                                            <td><?php echo $data['description'] ?></td>
+
+                                            <td>
+                                                <?php if(isset($user['name'])){
+                                                echo $user['name'];
                                             }else{
-                                                echo "<h6 style='color:red'>Not Subscribed</h6>";
+                                                echo 'NaN';
+                                            } ?>
+                                            </td>
+                                            <td><?php if(isset($user['email'])){
+                                                echo $user['email'];
+                                            }else{
+                                                echo 'NaN';
+                                            } ?></td>
+                                            <td><?php 
+                                            if(isset($user['mobile'])){
+                                                echo $user['mobile'];
+                                            }else{
+                                                echo 'NaN';
                                             }
-                                            ?></td>
-                                            <td><?php echo $data['subscriptionId'] ?></td>
-                                            <td><?php echo $data['transactionId'] ?></td>
+                                             ?></td>
                                             <td><?php 
                                             if($data['isActive']==1){
                                                 echo "<h6 style='color:green'>Active</h6>";
@@ -101,14 +118,11 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <a class="dropdown-item"
-                                                        href="edituser.php?activate=<?php echo $data['_id'] ?>">Edit
-                                                        User</a>
+                                                        href="shops.php?activate=<?php echo $data['_id'] ?>">Activate
+                                                        Shop</a>
                                                     <a class="dropdown-item"
-                                                        href="users.php?activate=<?php echo $data['_id'] ?>">Activate
-                                                        User</a>
-                                                    <a class="dropdown-item"
-                                                        href="users.php?inactivate=<?php echo $data['_id'] ?>">Inactivate
-                                                        User</a>
+                                                        href="shops.php?inactivate=<?php echo $data['_id'] ?>">Inactivate
+                                                        Shop</a>
                                                 </div>
                                             </td>
                                         </tr>

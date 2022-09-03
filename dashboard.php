@@ -51,48 +51,15 @@ include 'admin/aside.php';
 
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Super Master
-
-                                                    </p>
-                                                    <?php
-        $sql = "select * from users where user_type='s_master'";
-        $results = $connect->query($sql);
-       $pt = mysqli_num_rows($results);
-        ?>
-                                                    <span class="h2 mb-0"><?php echo $pt; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Master
-
-                                                    </p>
-                                                    <?php
-        $sql = "select * from users where user_type='master'";
-        $results = $connect->query($sql);
-       $pt = mysqli_num_rows($results);
-        ?>
-                                                    <span class="h2 mb-0"><?php echo $pt; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="p-4">
                                                     <p class="small text-uppercase text-muted mb-0">Total Users
 
                                                     </p>
                                                     <?php
-        $sql = "select * from users where user_type='s_master'";
-        $results = $connect->query($sql);
-       $pt = mysqli_num_rows($results);
-        ?>
-                                                    <span class="h2 mb-0"><?php echo $pt; ?></span>
+                                                    $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
                                                     <p class="small mb-0">
 
                                                     </p>
@@ -100,15 +67,15 @@ include 'admin/aside.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Bet Played
+                                                    <p class="small text-uppercase text-muted mb-0">Total Shops
 
                                                     </p>
                                                     <?php
-        $sql = "select * from game_transactions";
-        $results = $connect->query($sql);
-       $pt = mysqli_num_rows($results);
-        ?>
-                                                    <span class="h2 mb-0"><?php echo $pt; ?></span>
+                                                    $make_call = NODEAPIGET('shop',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
                                                     <p class="small mb-0">
 
                                                     </p>
@@ -116,20 +83,103 @@ include 'admin/aside.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Coin Issued
+                                                    <p class="small text-uppercase text-muted mb-0">Total Posted Work
 
                                                     </p>
                                                     <?php
-        $sql = "select SUM(user_coin) as user_coin from users where user_type='s_admin'";
-        $results = $connect->query($sql);
-       $pt = $results->fetch_assoc();
-        ?>
-                                                    <span class="h2 mb-0"><?php echo -$pt['user_coin']; ?></span>
+                                                    $make_call = NODEAPIGET('work',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
                                                     <p class="small mb-0">
 
                                                     </p>
                                                 </div>
                                             </div>
+                                            <div class="col-6">
+                                                <div class="p-4">
+                                                    <p class="small text-uppercase text-muted mb-0">Total Posted Jobs
+
+                                                    </p>
+                                                    <?php
+                                                    $make_call = NODEAPIGET('job',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
+                                                    <p class="small mb-0">
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="p-4">
+                                                    <p class="small text-uppercase text-muted mb-0">Total Applied Jobs
+
+                                                    </p>
+                                                    <?php
+                                                    $make_call = NODEAPIGET('jobapply',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
+                                                    <p class="small mb-0">
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="p-4">
+                                                    <p class="small text-uppercase text-muted mb-0">Total Active Offers
+
+                                                    </p>
+                                                    <?php
+                                                    $make_call = NODEAPIGET('salesoffer',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
+                                                    <p class="small mb-0">
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="p-4">
+                                                    <p class="small text-uppercase text-muted mb-0">Total Active Coupons
+
+                                                    </p>
+                                                    <?php
+                                                    $make_call = NODEAPIGET('coupon',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
+                                                    <p class="small mb-0">
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="p-4">
+                                                    <p class="small text-uppercase text-muted mb-0">User Feedbacks
+
+                                                    </p>
+                                                    <?php
+                                                    $make_call = NODEAPIGET('feedback',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
+                                                    <p class="small mb-0">
+
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -137,9 +187,7 @@ include 'admin/aside.php';
                             </div> <!-- end section -->
                         </div> <!-- .card-body -->
                     </div> <!-- .card -->
-                    <iframe
-                        style="background: #F1F5F4;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);"
-                        src="https://charts.mongodb.com/charts-shopad-twmmm/embed/dashboards?id=63125b56-e4c6-400e-81ca-da1bc39b135e&theme=light&autoRefresh=false&maxDataAge=-1&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"></iframe>
+
                     <!-- / .row -->
                     <div class="row">
                         <!-- Recent orders -->

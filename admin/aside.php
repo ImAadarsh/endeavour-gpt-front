@@ -30,44 +30,54 @@
             <span>Super Admin Controls</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
+            <a href="edituser.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">Edit Profile</span>
+            </a>
             <a href="adduser.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
                 <span class="ml-3 item-text">Add User</span>
             </a>
-            <a href="users.php?user_type=s_admin" aria-expanded="false" class="dropdown-toggle nav-link">
+            <a href="addcoupon.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Manage Super Admin</span>
+                <span class="ml-3 item-text">Add Coupon</span>
             </a>
-            <a href="users.php?user_type=s_master" aria-expanded="false" class="dropdown-toggle nav-link">
+            <a href="addsubs.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Manage Super Master</span>
-            </a>
-            <a href="users.php?user_type=master" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Manage Master</span>
-            </a>
-            <a href="users.php?user_type=user" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Manage User</span>
+                <span class="ml-3 item-text">Add Subscription</span>
             </a>
             <a href="users.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Manage All</span>
+                <span class="ml-3 item-text">All Users</span>
             </a>
-            <a href="bets.php" aria-expanded="false" class="dropdown-toggle nav-link">
+            <a href="shops.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">All Bets</span>
+                <span class="ml-3 item-text">Manage Shops</span>
             </a>
-            <a href="siteedit.php" aria-expanded="false" class="dropdown-toggle nav-link">
+            <a href="works.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Edit Site</span>
+                <span class="ml-3 item-text">All Posted Works</span>
+            </a>
+            <a href="jobs.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">All Posted Jobs</span>
+            </a>
+            <a href="offers.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">All Active Offers</span>
+            </a>
+            <a href="subscriptionplans.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">Subscription Plans</span>
+            </a>
+            <a href="feedbacks.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">All Feedbacks</span>
             </a>
             <a href="admin/logout.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
                 <span class="ml-3 item-text">Logout</span>
             </a>
-
-
         </ul>
     </nav>
 </aside>

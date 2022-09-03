@@ -4,14 +4,13 @@ function callAPI($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'https://shop-ad-strix.herokuapp.com/'.$urlpoint.'';
+    $url = 'http://127.0.0.1:3001/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
           curl_setopt($curl, CURLOPT_POST, 1);
           if ($data)
              curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-             
           break;
        case "PUT":
           curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
@@ -38,7 +37,7 @@ function callAPI($method, $urlpoint, $data, $token){
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     // EXECUTE:
     $result = curl_exec($curl);
-   //  echo $result;
+    echo $result;
     if(!$result){echo curl_error($curl);}
     curl_close($curl);
     return $result;
@@ -48,7 +47,7 @@ function callAPI1($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'https://shop-ad-strix.herokuapp.com/'.$urlpoint.'';
+    $url = 'http://127.0.0.1:3001/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
@@ -82,10 +81,59 @@ function callAPI1($method, $urlpoint, $data, $token){
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     // EXECUTE:
     $result = curl_exec($curl);
-   //  echo $result;
+    echo $result;
     if(!$result){echo curl_error($curl);}
     curl_close($curl);
     return $result;
+ }
+
+ function NODEAPIPOST($data,$link){
+   $url = 'http://127.0.0.1:3001/'.$link.'';
+   $curl = curl_init();
+curl_setopt_array($curl, array(
+  CURLOPT_URL => $url,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS =>$data,
+  CURLOPT_HTTPHEADER => array(
+    'Content-Type: application/json'
+  ),
+));
+$response = curl_exec($curl);
+curl_close($curl);
+echo $response;
+return $response;
+ }
+
+ function NODEAPIGET($link,$token,$data, $method){
+$curl = curl_init();
+ $url = 'http://127.0.0.1:3001/'.$link.'';
+curl_setopt_array($curl, array(
+  CURLOPT_URL => $url,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => $method,
+  CURLOPT_POSTFIELDS =>$data,
+  CURLOPT_HTTPHEADER =>  array(
+   'Content-Type: application/json',
+   $token
+),
+));
+
+$response = curl_exec($curl);
+// echo $response;
+curl_close($curl);
+return $response;
+
  }
 
 ?>

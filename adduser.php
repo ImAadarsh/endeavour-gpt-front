@@ -16,16 +16,17 @@ include 'admin/aside.php';
 
 
                 <div class="card shadow mb-4">
-                    <a href="manageuser.php">
+                    <a href="users.php">
                         <button type="button" class="btn btn-primary">View Users</button>
                     </a>
                     <div class="card-header">
                         <strong class="card-title">New User</strong>
                     </div>
+
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <form role="form" action="adduserhandler.php" method="POST"
+                                <form role="form" action="controllers/adduserhandler.php" method="POST"
                                     enctype="multipart/form-data">
 
 
@@ -55,11 +56,9 @@ include 'admin/aside.php';
                                         <select required name="user_type" class="custom-select" id="custom-select">
                                             <option selected>Select User Type
                                             </option>
-                                            <option value="s_admin">Super Admin
+                                            <option value="admin">Admin
                                             </option>
-                                            <option value="s_master">Super Master
-                                            </option>
-                                            <option value="master">Master
+                                            <option value="shop">Shop Admin
                                             </option>
                                             <option value="user">User
                                             </option>

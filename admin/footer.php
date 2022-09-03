@@ -27,6 +27,17 @@ Chart.defaults.global.defaultFontColor = colors.mutedColor;
 <script src="js/apexcharts.min.js"></script>
 <script src="js/apexcharts.custom.js"></script>
 <script src="js/apps.js"></script>
+<script src='js/jquery.dataTables.min.js'></script>
+<script src='js/dataTables.bootstrap4.min.js'></script>
+<script>
+$('#dataTable-1').DataTable({
+    autoWidth: true,
+    "lengthMenu": [
+        [16, 32, 64, -1],
+        [16, 32, 64, "All"]
+    ]
+});
+</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 </body>

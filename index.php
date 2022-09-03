@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
 if ($response['token']&&$response['user'][0]['_id']) {
     $_SESSION['email'] =  $response['user'][0]['email'];
     $_SESSION['name'] = $response['user'][0]['name'];
-    $_SESSION['token'] = "Authorization: Bearer ".$response['bearer-token']."";
+    $_SESSION['token'] = "Authorization: Bearer ".$response['token']."";
     header('location: dashboard.php');
     $_SESSION['userid'] = $response['user'][0]['_id'];
 }

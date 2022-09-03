@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
 include 'admin/connect.php';
 include 'admin/session.php';
 include 'admin/header.php';
@@ -10,9 +12,9 @@ include 'admin/header.php';
 include 'admin/navbar.php';
 include 'admin/aside.php';
 // echo $_SESSION['token'];
-if(isset($_GET['activate'])){
-    $data = array("id" => $_GET['activate']);
-    $make_call = NODEAPIGET('user/active',$_SESSION['token'],json_encode($data,true),'POST');
+if(isset($_GET['delete'])){
+    $data = array("id" => $_GET['delete']);
+    $make_call = NODEAPIGET('coupon/delete',$_SESSION['token'],json_encode($data,true),'POST');
     $response = json_decode($make_call, true);
     if($response['message']){
         echo "<script>alert('".$response['message']."')
@@ -22,7 +24,7 @@ if(isset($_GET['activate'])){
 }
 if(isset($_GET['inactivate'])){
     $data = array("id" => $_GET['inactivate'] );
-    $make_call = NODEAPIGET('user/inactive',$_SESSION['token'],json_encode($data,true),'POST');
+    $make_call = NODEAPIGET('shop/inactive',$_SESSION['token'],json_encode($data,true),'POST');
     $response = json_decode($make_call, true);
     if($response['message']){
         echo "<script>alert('".$response['message']."')
@@ -30,14 +32,13 @@ if(isset($_GET['inactivate'])){
         ";
     }  
 }
-$make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
+$make_call = NODEAPIGET('coupon',$_SESSION['token'],null,'GET');
     $response = json_decode($make_call, true);
     if($response['message']){
         // echo "<script>alert('".$response['message']."')
         // </script>
         // ";
     }
-    
 ?>
 
         <main role="main" class="main-content">
@@ -47,7 +48,7 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                 <!-- / .row -->
                 <div class="row my-4">
                     <!-- Small table -->
-                    <div class="col-md-15">
+                    <div class="col-md-12">
                         <div class="card shadow">
                             <div class="card-body">
                                 <!-- table -->
@@ -55,14 +56,9 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>User Type</th>
-                                            <th>Subscribed</th>
-                                            <th>Subscription Id</th>
-                                            <th>Transaction Id</th>
-                                            <th>Is Active</th>
+                                            <th>Coupon Code</th>
+                                            <th>Discount in Rs</th>
+                                            <th>Count</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -75,42 +71,21 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                         <tr>
 
                                             <td><?php echo $count ?></td>
-                                            <td><?php echo $data['name'] ?></td>
-                                            <td><?php echo $data['mobile'] ?></td>
-                                            <td><?php echo $data['email'] ?></td>
-                                            <td><?php echo $data['userType'] ?></td>
-                                            <td><?php 
-                                             if($data['isSubscribed']==1){
-                                                echo "<h6 style='color:green'>Subscribed</h6>";
-                                            }else{
-                                                echo "<h6 style='color:red'>Not Subscribed</h6>";
-                                            }
-                                            ?></td>
-                                            <td><?php echo $data['subscriptionId'] ?></td>
-                                            <td><?php echo $data['transactionId'] ?></td>
-                                            <td><?php 
-                                            if($data['isActive']==1){
-                                                echo "<h6 style='color:green'>Active</h6>";
-                                            }else{
-                                                echo "<h6 style='color:red'>Inactive</h6>";
-                                            }
-                                            ?></td>
+                                            <td><?php echo $data['code'] ?></td>
+                                            <td><?php echo $data['discount'] ?></td>
+                                            <td><?php echo $data['count'] ?></td>
                                             <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item"
-                                                        href="edituser.php?activate=<?php echo $data['_id'] ?>">Edit
-                                                        User</a>
-                                                    <a class="dropdown-item"
-                                                        href="users.php?activate=<?php echo $data['_id'] ?>">Activate
-                                                        User</a>
-                                                    <a class="dropdown-item"
-                                                        href="users.php?inactivate=<?php echo $data['_id'] ?>">Inactivate
-                                                        User</a>
+                                                    <a style="color: red;" class="dropdown-item"
+                                                        href="coupons.php?delete=<?php echo $data['_id'] ?>">Delete
+                                                        Coupon</a>
+
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <?php
                                         $count= $count+1; 
