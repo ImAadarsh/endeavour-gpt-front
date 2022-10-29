@@ -112,7 +112,7 @@ return $response;
 
  function NODEAPIGET($link,$token,$data, $method){
 $curl = curl_init();
- $url = 'http://127.0.0.1:3001/'.$link.'';
+ $url = 'https://shop-ad-strix.herokuapp.com/'.$link.'';
 curl_setopt_array($curl, array(
   CURLOPT_URL => $url,
   CURLOPT_RETURNTRANSFER => true,
