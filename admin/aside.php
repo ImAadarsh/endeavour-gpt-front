@@ -38,6 +38,10 @@
                 <i class="fe fe-box fe-16"></i>
                 <span class="ml-3 item-text">Add User</span>
             </a>
+            <a href="addcategory.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">Add Category</span>
+            </a>
             <a href="addcoupon.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
                 <span class="ml-3 item-text">Add Coupon</span>
