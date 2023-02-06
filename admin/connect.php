@@ -4,7 +4,7 @@ function callAPI($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'http://ec2-43-204-38-110.ap-south-1.compute.amazonaws.com:5000/'.$urlpoint.'';
+    $url = 'http://127.0.0.1:3001/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
@@ -47,7 +47,7 @@ function callAPI1($method, $urlpoint, $data, $token){
         $token = "";
     }
     
-    $url = 'http://ec2-43-204-38-110.ap-south-1.compute.amazonaws.com:5000/'.$urlpoint.'';
+    $url = 'http://127.0.0.1:3001/'.$urlpoint.'';
     $curl = curl_init($url);
     switch ($method){
        case "POST":
@@ -88,7 +88,7 @@ function callAPI1($method, $urlpoint, $data, $token){
  }
 
  function NODEAPIPOST($data,$link){
-   $url = 'http://ec2-43-204-38-110.ap-south-1.compute.amazonaws.com:5000/'.$link.'';
+   $url = 'http://127.0.0.1:3001/'.$link.'';
    $curl = curl_init();
 curl_setopt_array($curl, array(
   CURLOPT_URL => $url,
@@ -112,7 +112,7 @@ return $response;
 
  function NODEAPIGET($link,$token,$data, $method){
 $curl = curl_init();
- $url = 'http://ec2-43-204-38-110.ap-south-1.compute.amazonaws.com:5000/'.$link.'';
+ $url = 'http://127.0.0.1:3001/'.$link.'';
 curl_setopt_array($curl, array(
   CURLOPT_URL => $url,
   CURLOPT_RETURNTRANSFER => true,

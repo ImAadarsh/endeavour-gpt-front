@@ -58,15 +58,10 @@ include 'admin/aside.php';
                                             </option>
                                             <option value="admin">Admin
                                             </option>
-                                            <option value="shop">Shop Admin
-                                            </option>
-                                            <option value="user">User
+                                            <option value="assistant">Assistant
                                             </option>
                                         </select>
                                     </div>
-
-
-
                                     <div class="form-group mb-3">
 
                                         <input type="submit" id="example-palaceholder" class="btn btn-primary"
@@ -77,11 +72,5 @@ include 'admin/aside.php';
                         </div>
                     </div>
                 </div>
-
-
-
-
-
             </div> <!-- .container-fluid -->
-
             <?php include "admin/footer.php"; ?>

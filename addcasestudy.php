@@ -16,34 +16,39 @@ include 'admin/aside.php';
 
 
                 <div class="card shadow mb-4">
-                    <a href="coupons.php">
-                        <button type="button" class="btn btn-primary">View Coupon</button>
+                    <a href="casestudy.php">
+                        <button type="button" class="btn btn-primary">View Case Studies</button>
                     </a>
                     <div class="card-header">
-                        <strong class="card-title">New User</strong>
+                        <strong class="card-title">New Case Study</strong>
                     </div>
 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <form role="form" action="controllers/addcouponhandler.php" method="POST"
+                                <form role="form" action="controllers/addcasestudyhandle.php" method="POST"
                                     enctype="multipart/form-data">
 
 
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Coupon Code</label>
+                                        <label for="simpleinput">Case Study Title</label>
                                         <input required type="text" id="simpleinput" class="form-control"
-                                            placeholder="Coupon Code" name="code">
+                                            placeholder="Case Study Title" name="name">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">Discount in Rs.</label>
+                                        <label for="simpleinput">Description</label>
                                         <input required type="text" id="simpleinput" class="form-control"
-                                            placeholder="Rupees" name="discount">
+                                            placeholder="Description" name="text">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="simpleinput">No. Times Code will be used</label>
-                                        <input required type="text" id="simpleinput" class="form-control"
-                                            placeholder="Count" name="count">
+                                        <label for="simpleinput">Icon File</label>
+                                        <input required type="file" id="simpleinput" class="form-control"
+                                            placeholder="Mobile" name="icon">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="simpleinput">PDF File</label>
+                                        <input required type="file" id="simpleinput" class="form-control"
+                                            placeholder="User Password" name="link">
                                     </div>
                                     <div class="form-group mb-3">
 
@@ -55,11 +60,5 @@ include 'admin/aside.php';
                         </div>
                     </div>
                 </div>
-
-
-
-
-
             </div> <!-- .container-fluid -->
-
             <?php include "admin/footer.php"; ?>

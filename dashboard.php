@@ -9,7 +9,6 @@ include 'admin/header.php';
         <?php
 include 'admin/navbar.php';
 include 'admin/aside.php';
-
 ?>
 
         <main role="main" class="main-content">
@@ -67,11 +66,11 @@ include 'admin/aside.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Shops
+                                                    <p class="small text-uppercase text-muted mb-0">Contact Us
 
                                                     </p>
                                                     <?php
-                                                    $make_call = NODEAPIGET('shop',$_SESSION['token'],null,'GET');
+                                                    $make_call = NODEAPIGET('contact',$_SESSION['token'],null,'GET');
                                                     $response = json_decode($make_call, true);
                                                     
                                                     ?>
@@ -83,87 +82,7 @@ include 'admin/aside.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Posted Work
-
-                                                    </p>
-                                                    <?php
-                                                    $make_call = NODEAPIGET('work',$_SESSION['token'],null,'GET');
-                                                    $response = json_decode($make_call, true);
-                                                    
-                                                    ?>
-                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Posted Jobs
-
-                                                    </p>
-                                                    <?php
-                                                    $make_call = NODEAPIGET('job',$_SESSION['token'],null,'GET');
-                                                    $response = json_decode($make_call, true);
-                                                    
-                                                    ?>
-                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Applied Jobs
-
-                                                    </p>
-                                                    <?php
-                                                    $make_call = NODEAPIGET('jobapply',$_SESSION['token'],null,'GET');
-                                                    $response = json_decode($make_call, true);
-                                                    
-                                                    ?>
-                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Active Offers
-
-                                                    </p>
-                                                    <?php
-                                                    $make_call = NODEAPIGET('salesoffer',$_SESSION['token'],null,'GET');
-                                                    $response = json_decode($make_call, true);
-                                                    
-                                                    ?>
-                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Active Coupons
-
-                                                    </p>
-                                                    <?php
-                                                    $make_call = NODEAPIGET('coupon',$_SESSION['token'],null,'GET');
-                                                    $response = json_decode($make_call, true);
-                                                    
-                                                    ?>
-                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">User Feedbacks
+                                                    <p class="small text-uppercase text-muted mb-0">Total Feedback
 
                                                     </p>
                                                     <?php
@@ -177,9 +96,22 @@ include 'admin/aside.php';
                                                     </p>
                                                 </div>
                                             </div>
+                                            <div class="col-6">
+                                                <div class="p-4">
+                                                    <p class="small text-uppercase text-muted mb-0">Total Casestudy
 
+                                                    </p>
+                                                    <?php
+                                                    $make_call = NODEAPIGET('casestudy',$_SESSION['token'],null,'GET');
+                                                    $response = json_decode($make_call, true);
+                                                    
+                                                    ?>
+                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
+                                                    <p class="small mb-0">
 
-
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

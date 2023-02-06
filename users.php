@@ -59,10 +59,6 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                             <th>Phone</th>
                                             <th>Email</th>
                                             <th>User Type</th>
-                                            <th>Subscribed</th>
-                                            <th>Subscription Id</th>
-                                            <th>Transaction Id</th>
-                                            <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -70,7 +66,6 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                         <?php 
                                         $count = 1;
                                         foreach($response['data'] as $data){
-                                        
                                         ?>
                                         <tr>
 
@@ -79,22 +74,7 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                             <td><?php echo $data['mobile'] ?></td>
                                             <td><?php echo $data['email'] ?></td>
                                             <td><?php echo $data['userType'] ?></td>
-                                            <td><?php 
-                                             if($data['isSubscribed']==1){
-                                                echo "<h6 style='color:green'>Subscribed</h6>";
-                                            }else{
-                                                echo "<h6 style='color:red'>Not Subscribed</h6>";
-                                            }
-                                            ?></td>
-                                            <td><?php echo $data['subscriptionId'] ?></td>
-                                            <td><?php echo $data['transactionId'] ?></td>
-                                            <td><?php 
-                                            if($data['isActive']==1){
-                                                echo "<h6 style='color:green'>Active</h6>";
-                                            }else{
-                                                echo "<h6 style='color:red'>Inactive</h6>";
-                                            }
-                                            ?></td>
+
                                             <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="text-muted sr-only">Action</span>
@@ -103,12 +83,12 @@ $make_call = NODEAPIGET('user',$_SESSION['token'],null,'GET');
                                                     <a class="dropdown-item"
                                                         href="edituser.php?activate=<?php echo $data['_id'] ?>">Edit
                                                         User</a>
-                                                    <a class="dropdown-item"
+                                                    <!-- <a class="dropdown-item"
                                                         href="users.php?activate=<?php echo $data['_id'] ?>">Activate
                                                         User</a>
                                                     <a class="dropdown-item"
                                                         href="users.php?inactivate=<?php echo $data['_id'] ?>">Inactivate
-                                                        User</a>
+                                                        User</a> -->
                                                 </div>
                                             </td>
                                         </tr>

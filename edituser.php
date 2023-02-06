@@ -28,8 +28,6 @@ if(isset($_GET['activate'])){
 
         <main role="main" class="main-content">
             <div class="container-fluid">
-
-
                 <div class="card shadow mb-4">
                     <a href="users.php">
                         <button type="button" class="btn btn-primary">View Users</button>
@@ -43,10 +41,7 @@ if(isset($_GET['activate'])){
                             <div class="col-md-12">
                                 <form role="form" action="controllers/edituserhandler.php" method="POST"
                                     enctype="multipart/form-data">
-
-
                                     <div class="form-group mb-3">
-
                                         <input hidden required type="text" id="simpleinput" class="form-control"
                                             value="<?php echo $uu ?>" name="id">
                                         <input hidden required type="text" id="simpleinput" class="form-control"
@@ -72,9 +67,7 @@ if(isset($_GET['activate'])){
                                             </option>
                                             <option value="admin">Admin
                                             </option>
-                                            <option value="shop">Shop Admin
-                                            </option>
-                                            <option value="user">User
+                                            <option value="assistant">Assistant
                                             </option>
                                         </select>
                                     </div>

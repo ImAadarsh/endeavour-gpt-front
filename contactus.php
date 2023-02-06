@@ -12,33 +12,15 @@ include 'admin/header.php';
 include 'admin/navbar.php';
 include 'admin/aside.php';
 // echo $_SESSION['token'];
-if(isset($_GET['delete'])){
-    $data = array("id" => $_GET['delete']);
-    $make_call = NODEAPIGET('coupon/delete',$_SESSION['token'],json_encode($data,true),'POST');
-    $response = json_decode($make_call, true);
-    if($response['message']){
-        echo "<script>alert('".$response['message']."')
-        </script>
-        ";
-    }  
-}
-if(isset($_GET['inactivate'])){
-    $data = array("id" => $_GET['inactivate'] );
-    $make_call = NODEAPIGET('shop/inactive',$_SESSION['token'],json_encode($data,true),'POST');
-    $response = json_decode($make_call, true);
-    if($response['message']){
-        echo "<script>alert('".$response['message']."')
-        </script>
-        ";
-    }  
-}
-$make_call = NODEAPIGET('coupon',$_SESSION['token'],null,'GET');
+
+$make_call = NODEAPIGET('contact',$_SESSION['token'],null,'GET');
     $response = json_decode($make_call, true);
     if($response['message']){
         // echo "<script>alert('".$response['message']."')
         // </script>
         // ";
     }
+    
 ?>
 
         <main role="main" class="main-content">
@@ -56,35 +38,48 @@ $make_call = NODEAPIGET('coupon',$_SESSION['token'],null,'GET');
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Coupon Code</th>
-                                            <th>Discount in Rs</th>
-                                            <th>Count</th>
-                                            <th>Action</th>
+                                            <th>Customer Name</th>
+                                            <th>Customer Number</th>
+                                            <th>Customer Email</th>
+                                            <th>Message</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php 
                                         $count = 1;
                                         foreach($response['data'] as $data){
+// if ($data['feedbackFor']=='work') {
+//     $uid = array("id" => $data['feedbackNumber'] );
+//     $call_user = NODEAPIGET('work/uid', $_SESSION['token'], json_encode($uid, true), 'POST');
+//     $cuser = json_decode($call_user, true);
+//     // if(isset($cuser['data'][0]))
+//     {$user = $cuser['data'][0];}
+// }
+// elseif($data['feedbackFor']=='offer'){
+//     // echo "offer";
+//     $uid = array("id" => $data['feedbackNumber'] );
+//     $call_user = NODEAPIGET('salesoffer/uid', $_SESSION['token'], json_encode($uid, true), 'POST');
+//     $cuser = json_decode($call_user, true);
+//     // if(isset($cuser['data'][0]))
+//     {$user = $cuser['data'][0];}
+// }
+// elseif($data['feedbackFor']=='job'){
+//     $uid = array("id" => $data['feedbackNumber'] );
+//     $call_user = NODEAPIGET('job/uid', $_SESSION['token'], json_encode($uid, true), 'POST');
+//     $cuser = json_decode($call_user, true);
+//     // if(isset($cuser['data'][0]))
+//     {$user = $cuser['data'][0];}
+// }
+
                                         
                                         ?>
                                         <tr>
 
                                             <td><?php echo $count ?></td>
-                                            <td><?php echo $data['code'] ?></td>
-                                            <td><?php echo $data['discount'] ?></td>
-                                            <td><?php echo $data['count'] ?></td>
-                                            <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span class="text-muted sr-only">Action</span>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a style="color: red;" class="dropdown-item"
-                                                        href="coupons.php?delete=<?php echo $data['_id'] ?>">Delete
-                                                        Coupon</a>
-
-                                                </div>
-                                            </td>
+                                            <td><?php echo $data['customerName'] ?></td>
+                                            <td><?php echo $data['mobile'] ?></td>
+                                            <td><?php echo $data['email'] ?></td>
+                                            <td><?php echo $data['message'] ?></td>
 
                                         </tr>
                                         <?php

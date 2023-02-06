@@ -25,7 +25,6 @@ if ($response['token']&&$response['user'][0]['_id']) {
     $_SESSION['userid'] = $response['user'][0]['_id'];
 }
 }
-
 ?>
 <?php include("partials/header.php"); ?>
 
@@ -61,7 +60,7 @@ if ($response['token']&&$response['user'][0]['_id']) {
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Login</button>
                 <br>
-                <p class="mt-5 mb-3 text-muted">Strix Digital © 2020</p>
+                <p class="mt-5 mb-3 text-muted">Pinnacle © 2023</p>
             </form>
         </div>
     </div>

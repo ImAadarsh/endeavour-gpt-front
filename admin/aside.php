@@ -27,7 +27,7 @@
             </li>
         </ul>
         <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Super Admin Controls</span>
+            <span>Pinnacle Admin Controls</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <a href="edituser.php" aria-expanded="false" class="dropdown-toggle nav-link">
@@ -36,47 +36,31 @@
             </a>
             <a href="adduser.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Add User</span>
+                <span class="ml-3 item-text">Add Users</span>
             </a>
-            <a href="addcategory.php" aria-expanded="false" class="dropdown-toggle nav-link">
+            <a href="addcasestudy.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Add Category</span>
+                <span class="ml-3 item-text">Add CaseStudy</span>
             </a>
-            <a href="addcoupon.php" aria-expanded="false" class="dropdown-toggle nav-link">
+            <a href="sendcasestudy.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Add Coupon</span>
-            </a>
-            <a href="addsubs.php" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Add Subscription</span>
+                <span class="ml-3 item-text">Send Casestudy</span>
             </a>
             <a href="users.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
                 <span class="ml-3 item-text">All Users</span>
             </a>
-            <a href="shops.php" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Manage Shops</span>
-            </a>
-            <a href="works.php" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">All Posted Works</span>
-            </a>
-            <a href="jobs.php" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">All Posted Jobs</span>
-            </a>
-            <a href="offers.php" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">All Active Offers</span>
-            </a>
-            <a href="subscriptionplans.php" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text">Subscription Plans</span>
-            </a>
             <a href="feedbacks.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
                 <span class="ml-3 item-text">All Feedbacks</span>
+            </a>
+            <a href="casestudy.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">All CaseStudies</span>
+            </a>
+            <a href="contactus.php" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text">Contact Us Queries</span>
             </a>
             <a href="admin/logout.php" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
