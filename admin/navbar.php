@@ -18,7 +18,8 @@
             </a>
         </li>
         <li class="nav-item nav-notif">
-            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
+            <a class="nav-link text-muted my-2"
+                href="https://api.whatsapp.com/send?phone=919399380920&text=%22Hey%20!%20%20Aadarsh%20this%20message%20is%20a%20redirection%20from%20Endeavour%20GPT.%22">
                 <span class="fe fe-bell fe-16"></span>
                 <span class="dot dot-md bg-success"></span>
             </a>
@@ -27,7 +28,7 @@
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="avatar avatar-sm mt-2">
-                    <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
+                    <img src="./assets/avatars/e.png" alt="..." class="avatar-img rounded-circle">
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">

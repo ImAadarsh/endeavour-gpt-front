@@ -29,9 +29,9 @@ if(isset($_GET['activate'])){
         <main role="main" class="main-content">
             <div class="container-fluid">
                 <div class="card shadow mb-4">
-                    <a href="users.php">
+                    <!-- <a href="users.php">
                         <button type="button" class="btn btn-primary">View Users</button>
-                    </a>
+                    </a> -->
                     <div class="card-header">
                         <strong class="card-title">Edit User</strong>
                     </div>
@@ -53,6 +53,11 @@ if(isset($_GET['activate'])){
                                             value="<?php echo $user['name'] ?>" name="name">
                                     </div>
                                     <div class="form-group mb-3">
+                                        <label for="simpleinput">Email</label>
+                                        <input disabled type="text" id="simpleinput" class="form-control"
+                                            value="<?php echo $user['email'] ?>" name="name">
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label for="simpleinput">Mobile</label>
                                         <input required type="text" id="simpleinput" class="form-control"
                                             value="<?php echo $user['mobile'] ?>" name="mobile">
@@ -61,13 +66,10 @@ if(isset($_GET['activate'])){
 
                                     <div class="form-group mb-3">
                                         <label for="custom-select">User Type</label>
-                                        <select required name="user_type" class="custom-select" id="custom-select">
+                                        <select disabled required name="user_type" class="custom-select"
+                                            id="custom-select">
                                             <option selected value="<?php echo $user['userType'] ?>">
                                                 <?php echo $user['userType'] ?>
-                                            </option>
-                                            <option value="admin">Admin
-                                            </option>
-                                            <option value="assistant">Assistant
                                             </option>
                                         </select>
                                     </div>

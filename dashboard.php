@@ -28,10 +28,10 @@ include 'admin/aside.php';
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="button" class="btn btn-sm"><span
-                                                class="fe fe-refresh-ccw fe-16 text-muted"></span></button>
-                                        <button type="button" class="btn btn-sm mr-2"><span
-                                                class="fe fe-filter fe-16 text-muted"></span></button>
+                                        <a href='dashboard.php'>
+                                            <button type="button" class="btn btn-sm"><span
+                                                    class="fe fe-refresh-ccw fe-16 text-muted"></span></button></a>
+
                                     </div>
                                 </form>
                             </div>
@@ -50,7 +50,7 @@ include 'admin/aside.php';
 
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Users
+                                                    <p class="small text-uppercase text-muted mb-0">Total GPT Users
 
                                                     </p>
                                                     <?php
@@ -66,11 +66,11 @@ include 'admin/aside.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Contact Us
+                                                    <p class="small text-uppercase text-muted mb-0">Total Queries
 
                                                     </p>
                                                     <?php
-                                                    $make_call = NODEAPIGET('contact',$_SESSION['token'],null,'GET');
+                                                    $make_call = NODEAPIGET('chat',$_SESSION['token'],null,'GET');
                                                     $response = json_decode($make_call, true);
                                                     
                                                     ?>
@@ -82,11 +82,12 @@ include 'admin/aside.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Feedback
+                                                    <p class="small text-uppercase text-muted mb-0">Your Queries
 
                                                     </p>
                                                     <?php
-                                                    $make_call = NODEAPIGET('feedback',$_SESSION['token'],null,'GET');
+                                                    $data = array("email" => $_SESSION['email']);
+                                                    $make_call = NODEAPIGET('chat/email',$_SESSION['token'],json_encode($data,true),'POST');
                                                     $response = json_decode($make_call, true);
                                                     
                                                     ?>
@@ -96,37 +97,23 @@ include 'admin/aside.php';
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
-                                                <div class="p-4">
-                                                    <p class="small text-uppercase text-muted mb-0">Total Casestudy
 
-                                                    </p>
-                                                    <?php
-                                                    $make_call = NODEAPIGET('casestudy',$_SESSION['token'],null,'GET');
-                                                    $response = json_decode($make_call, true);
-                                                    
-                                                    ?>
-                                                    <span class="h2 mb-0"><?php echo $response['count']; ?></span>
-                                                    <p class="small mb-0">
-
-                                                    </p>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- .col-md-8 -->
-                            </div> <!-- end section -->
-                        </div> <!-- .card-body -->
-                    </div> <!-- .card -->
+                            </div>
+                            <!-- .col-md-8 -->
+                        </div> <!-- end section -->
+                    </div> <!-- .card-body -->
+                </div> <!-- .card -->
 
-                    <!-- / .row -->
-                    <div class="row">
-                        <!-- Recent orders -->
+                <!-- / .row -->
+                <div class="row">
+                    <!-- Recent orders -->
 
-                    </div> <!-- end section -->
-                </div>
-            </div> <!-- .row -->
+                </div> <!-- end section -->
+            </div>
+    </div> <!-- .row -->
     </div> <!-- .container-fluid -->
 
     <?php include "admin/footer.php"; ?>
